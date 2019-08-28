@@ -1,0 +1,7 @@
+---
+
+env_loader_src: "{{ env_loader_root }}/{{ env_loader_env_name }}"
+
+# These parameters must be set
+#env_loader_root: "{{ playbook_dir }}/vars"
+#env_loader_env_name: "dev"

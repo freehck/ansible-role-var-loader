@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Dmitrii Kashin
+  description: Loader for environment variables
+  company: Noname
+  license: MIT
+  min_ansible_version: 2.7
+  platforms:
+  - name: Ubuntu
+    versions:
+    - 18.04
+
+  galaxy_tags: [ loader, vars, environment ]
+
+dependencies: []

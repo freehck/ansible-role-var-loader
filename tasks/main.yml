@@ -1,0 +1,17 @@
+---
+
+- name: "check if variables source directory exists: {{ env_loader_src }}"
+  stat:
+    path: "{{ env_loader_src }}"
+  delegate_to: localhost
+  register: env_loader_src_file_check
+
+- name: "fail if variables source directory not exist: {{ env_loader_src }}"
+  fail:
+    msg: "variables source directory not exist: {{ env_loader_src }}"
+  when: env_loader_src_file_check.stat.exists == false
+
+- name: "include variables from directory: {{ env_loader_src }}"
+  include_vars:
+    dir: "{{ env_loader_src }}"
+    ignore_unknown_extensions: yes
