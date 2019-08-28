@@ -22,42 +22,41 @@ Example Playbook
 
 This snippet will include all the `*.yml` files from playbook_dir/vars/dev:
 
-	- hosts: group-containing-all-hosts-for-dev-env
-	  roles:
-		  - role: var-loader
-		    var_loader_root: "{{ playbook_dir }}/vars"
-			var_loader_group_name: "dev"
+    - hosts: group-containing-all-hosts-for-dev-env
+      roles:
+        - role: var-loader
+          var_loader_root: "{{ playbook_dir }}/vars"
+          var_loader_group_name: "dev"
 
 This snippet will include all the `*.yml` files from /home/user/my-env
 
-	- hosts: group-containing-all-hosts-for-dev-env
-	  roles:
-		  - role: var-loader
-		    var_loader_src: "/home/user/my-env"
+    - hosts: group-containing-all-hosts-for-dev-env
+      roles:
+        - role: var-loader
+          var_loader_src: "/home/user/my-env"
 
 This snippet will include all the `*.yml` files from: playbook_dir/creds/dev, playbook_dir/env-vars/dev, playbook_dir/common-vars/my-dev-env
 
-	--- playbook.yml ---
-	- hosts: group-containing-all-hosts-for-dev-env
-	  roles:
-		  # load credentials
-		  - role: var-loader
-			var_loader_root: "{{ playbook_dir }}/creds"
-			var_loader_group_name: "{{ credentials_library }}"
-		  # load environment specific variables
-		  - role: var-loader
-			var_loader_root: "{{ playbook_dir }}/env-vars"
-			var_loader_group_name: "{{ env_name }}"
-		  # load variables specific for this environment group (group of similar environments)
-		  - role: var-loader
-			var_loader_root: "{{ playbook_dir }}/common-vars"
-			var_loader_group_name: "{{ env_group_name }}"
-	
-	--- group_vars/group-containing-all-hosts-for-dev-env.yml ---
-	credentials_library: "dev"
-	env_group_name: "dev"
-	env_name: "my-dev-env"
-
+    --- playbook.yml ---
+    - hosts: group-containing-all-hosts-for-dev-env
+      roles:
+        # load credentials
+        - role: var-loader
+          var_loader_root: "{{ playbook_dir }}/creds"
+          var_loader_group_name: "{{ credentials_library }}"
+        # load environment specific variables
+        - role: var-loader
+          var_loader_root: "{{ playbook_dir }}/env-vars"
+          var_loader_group_name: "{{ env_name }}"
+        # load variables specific for this environment group (group of similar environments)
+        - role: var-loader
+          var_loader_root: "{{ playbook_dir }}/common-vars"
+          var_loader_group_name: "{{ env_group_name }}"
+        
+    --- group_vars/group-containing-all-hosts-for-dev-env.yml ---
+    credentials_library: "dev"
+    env_group_name: "dev"
+    env_name: "my-dev-env"
 
 License
 -------
