@@ -7,7 +7,9 @@ Role Variables
 --------------
 
 var_loader_root: here directories with environments are stored
+
 var_loader_group_name: directory with environment variables, this path is relative to var_loader_root
+
 var_loader_src: if specified, the role will load variables just from this directory
 
 Role Defaults
@@ -33,7 +35,7 @@ This snippet will include all the `*.yml` files from /home/user/my-env
 		  - role: env-loader
 		    var_loader_src: "/home/user/my-env"
 
-This snippet will include all the `*.yml` files from: {{ playbook_dir }}/creds/dev, {{ playbook_dir }}/env-vars/dev, {{ playbook_dir }}/common-vars/my-dev-env
+This snippet will include all the `*.yml` files from: playbook_dir/creds/dev, playbook_dir/env-vars/dev, playbook_dir/common-vars/my-dev-env
 
 	--- playbook.yml ---
 	- hosts: group-containing-all-hosts-for-dev-env
