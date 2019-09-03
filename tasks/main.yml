@@ -1,15 +1,15 @@
 ---
 
-- name: "check if variables source directory exists: {{ var_loader_src }}"
-  stat:
-    path: "{{ var_loader_src }}"
-  delegate_to: localhost
-  register: var_loader_src_file_check
-
-- name: "fail if variables source directory not exist: {{ var_loader_src }}"
-  fail:
-    msg: "variables source directory not exist: {{ var_loader_src }}"
-  when: var_loader_src_file_check.stat.exists == false
+#- name: "check if variables source directory exists: {{ var_loader_src }}"
+#  stat:
+#    path: "{{ var_loader_src }}"
+#  delegate_to: localhost
+#  register: var_loader_src_file_check
+#
+#- name: "fail if variables source directory not exist: {{ var_loader_src }}"
+#  fail:
+#    msg: "variables source directory not exist: {{ var_loader_src }}"
+#  when: var_loader_src_file_check.stat.exists == false
 
 - name: "include variables from directory: {{ var_loader_src }}"
   include_vars:
