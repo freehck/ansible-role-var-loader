@@ -1,7 +1,7 @@
 galaxy_info:
   author: Dmitrii Kashin
   description: loader for environment variables
-  role_name: var-loader
+  role_name: var_loader
   license: MIT
   min_ansible_version: 2.7
   platforms:
