@@ -1,4 +1,4 @@
-var-loader
+freehck.var_loader
 =========
 
 This role includes variables from specific directory.
